@@ -9,6 +9,7 @@
         "eslint:recommended",
         "plugin:react/recommended"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -20,13 +21,14 @@
         "react"
     ],
     "rules": {
+        "no-console": 1,
         "react/prop-types": 0,
         "accessor-pairs": "error",
         "array-bracket-newline": "error",
         "array-bracket-spacing": "error",
         "array-callback-return": "error",
         "array-element-newline": "error",
-        "arrow-spacing": [
+        "arrow-spacing": [  
             "error",
             {
                 "after": true,
@@ -190,13 +192,11 @@
         "no-throw-literal": "error",
         "no-undef-init": "error",
         "no-undefined": "error",
-        "no-underscore-dangle": "error",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
         "no-unused-expressions": "error",
         "no-use-before-define": "error",
         "no-useless-call": "error",
-        "no-useless-catch": "error",
         "no-useless-computed-key": "error",
         "no-useless-concat": "error",
         "no-useless-constructor": "error",
@@ -208,9 +208,8 @@
         "no-whitespace-before-property": "error",
         "no-with": "error",
         "nonblock-statement-body-position": "error",
-        "object-curly-newline": "error",
         "object-curly-spacing": [
-            "error",
+            "warn",
             "always"
         ],
         "object-property-newline": "error",
@@ -239,18 +238,17 @@
         "radix": "error",
         "require-atomic-updates": "error",
         "require-await": "error",
-        "require-jsdoc": "error",
         "require-unicode-regexp": "error",
         "rest-spread-spacing": "error",
-        "semi": "off",
+        "semi": [
+            "warn",
+            "never"
+        ],
         "semi-spacing": "error",
         "semi-style": [
             "error",
             "last"
         ],
-        "sort-imports": "error",
-        "sort-keys": "error",
-        "sort-vars": "error",
         "space-before-blocks": "error",
         "space-before-function-paren": [
             "error",

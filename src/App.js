@@ -1,10 +1,9 @@
+import './styles/index.scss';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-
-import store from './store';
-import './styles/index.scss';
-
 import YelpTester from './components/YelpTester'
+import store from './store';
+
 
 class App extends Component {
 	render() {
@@ -12,6 +11,7 @@ class App extends Component {
 			<Provider store={store}>
 				<div className="App">
 					<header className="App-header">
+						{this.state}
 						<YelpTester />
 					</header>
 				</div>

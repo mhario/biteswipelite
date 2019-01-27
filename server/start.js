@@ -1,6 +1,5 @@
 'use strict'
 const express = require('express')
-const { resolve } = require('path')
 const app = express()
 
 const volleyball = require('volleyball')

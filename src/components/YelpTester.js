@@ -4,13 +4,13 @@ import { setRestaurants } from '../reducers/';
 
 class YelpTester extends Component {
 
-	requestRestaurants() {
+	requestRestaurants = () => {
 		setTimeout(() => {
 			this.props.setTheRestaurants([
 				{ name: 'hot dogs' },
 				{ name: 'beer' }
 			])
-		}, 1000)
+		}, 500)
 	}
 
 	render() {

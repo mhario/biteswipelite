@@ -2,7 +2,7 @@
 const router = require('express').Router()
 const axios = require('axios').create({
 	headers: {
-		Authorization: "Bearer ifmcHckXmEX3wR_GyngSNs27MYfuZX5e_fIUXxNgM14RE5s0LENxjVSewfVHrjwl5mqAKSKTJfpwt0TVC89u1MPGYSkGLrSu8CgbwEoxANKZa5Kg4VHTQ4dNgctEXHYx"
+		Authorization: 'Bearer ifmcHckXmEX3wR_GyngSNs27MYfuZX5e_fIUXxNgM14RE5s0LENxjVSewfVHrjwl5mqAKSKTJfpwt0TVC89u1MPGYSkGLrSu8CgbwEoxANKZa5Kg4VHTQ4dNgctEXHYx'
 	}
 })
 
