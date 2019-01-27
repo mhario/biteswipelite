@@ -1,0 +1,8 @@
+{
+    "editor.selectionHighlight": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#004400",
+        "editor.findMatchBackground": "#444",
+        "editor.findMatchHighlightBackground": "#333"
+    }
+}

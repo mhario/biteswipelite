@@ -4,7 +4,7 @@ import { setRestaurants } from '../reducers/';
 
 class YelpTester extends Component {
 
-	requestRestaurants = () => {
+	requestRestaurants() {
 		setTimeout(() => {
 			this.props.setTheRestaurants([
 				{ name: 'hot dogs' },
@@ -21,7 +21,7 @@ class YelpTester extends Component {
 					onClick={this.requestRestaurants}>
 					Get stuff!	
 				</button>
-				<div className="menu" style={{color: 'white'}}>
+				<div className="menu" style={ { color: 'white' } }>
 					{
 						this.props.restaurants &&
 						this.props.restaurants.map(restaurant => {
