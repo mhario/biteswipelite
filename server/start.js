@@ -6,7 +6,6 @@ const app = express()
 const volleyball = require('volleyball')
 
 module.exports = app
-
 	.use(volleyball)	// basic color-coded logging
 
 	.use('/api', require('./api'))
