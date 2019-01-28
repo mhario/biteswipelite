@@ -2,10 +2,13 @@
 const express = require('express')
 const app = express()
 
+const cors = require('cors')
 const volleyball = require('volleyball')
 
 module.exports = app
+
 	.use(volleyball)	// basic color-coded logging
+	.use(cors())		// cors prevents requests, at least on locahost
 
 	.use('/api', require('./api'))
 	

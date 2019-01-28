@@ -1,6 +1,5 @@
 'use strict'
 const router = require('express').Router()
-const volleyball = require('volleyball')
 
 router
 	.get('/heartbeat', (req, res) => res.send({ ok: true }))
@@ -9,11 +8,11 @@ router
 
 	// Send along any errors
 	.use((err, req, res, next) => {
-		console.log(err);
-		res.status(500).send(err);
+		console.error(err)
+		res.status(500).send(err)
 	})
 
-	.use('/', function (req, res) {
+	.use('/', function(req, res) {
 		res.sendStatus(404)
 	})
 
