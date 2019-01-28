@@ -40,20 +40,18 @@ export const setLoading = isLoading => {
 		value: isLoading }
 }
 
-export const requestRestaurants = () => {
-	// return axios.get('http://localhost:8080/api/search?query=hotdogs')
-	// 	.then(res => console.log('response', res))
+export const requestRestaurants = search => {
+	console.log('search tearm', search)
+
 	return function(dispatch) {
 		dispatch(setLoading(true))
 
 		return axios({
 			method: 'get',
-			url: 'http://localhost:8080/api/search?query=hotdogs and beer'
-			// params: {
-			// 	term: req.query.query,
-			// 	latitude: 37.786882,
-			// 	longitude: -122.399972
-			// }
+			url: 'http://localhost:8080/api/search',
+			params: {
+				query: search
+			}
 		})
 		.then(response => {
 			console.log('response in the reducer is', response)
