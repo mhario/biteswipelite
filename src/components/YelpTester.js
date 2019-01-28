@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { setRestaurants } from '../reducers/';
+import {
+	setRestaurants,
+	requestRestaurants } from '../reducers/'
+import { connect } from 'react-redux'
 
 class YelpTester extends Component {
 
-	requestRestaurants = () => {
-		setTimeout(() => {
-			this.props.setTheRestaurants([
-				{ name: 'hot dogs' },
-				{ name: 'beer' }
-			])
-		}, 500)
+	constructor() {
+		super()
+		this.state = {
+			loading: false
+		}
+
+		// this.requestRestaurants = this._requestRestaurants.bind(this)
 	}
 
 	render() {
@@ -18,7 +20,7 @@ class YelpTester extends Component {
 			<div>
 				testing Yelp lol
 				<button
-					onClick={this.requestRestaurants}>
+					onClick={this.props.requestRestaurants}>
 					Get stuff!	
 				</button>
 				<div className="menu" style={ { color: 'white' } }>
@@ -40,13 +42,17 @@ class YelpTester extends Component {
 
 const mapStateToProps = state => {
 	return {
-		restaurants: state.restaurants
+		restaurants: state.restaurants,
+		loading: state.loading
 	}
 }
 
 const mapDispatchToProps = dispatch => ({
 	setTheRestaurants(rests) {
 		dispatch(setRestaurants(rests))
+	},
+	requestRestaurants() {
+		dispatch(requestRestaurants())
 	}
 })
 
