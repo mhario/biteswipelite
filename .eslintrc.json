@@ -21,6 +21,7 @@
         "react"
     ],
     "rules": {
+        "no-unused-vars": "warn",
         "no-console": 1,
         "react/prop-types": 0,
         "accessor-pairs": "error",
@@ -42,7 +43,7 @@
         "camelcase": "error",
         "capitalized-comments": "off",
         "class-methods-use-this": "error",
-        "comma-dangle": "error",
+        "comma-dangle": "off",
         "comma-spacing": [
             "error",
             {
@@ -67,10 +68,10 @@
         "func-call-spacing": "error",
         "func-name-matching": "error",
         "func-names": "off",
-        "func-style": "error",
+        "func-style": "warn",
         "function-paren-newline": "off",
         "generator-star-spacing": "error",
-        "global-require": "error",
+        "global-require": "off",
         "guard-for-in": "error",
         "handle-callback-err": "error",
         "id-blacklist": "error",
@@ -79,7 +80,12 @@
             "error",
             "beside"
         ],
-        "indent": "off",
+        "indent": ["warn", "tab",
+            {
+                "SwitchCase": 1,
+                "MemberExpression": 0
+            }
+        ],
         "indent-legacy": "off",
         "init-declarations": "error",
         "jsx-quotes": "error",

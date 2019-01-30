@@ -6,17 +6,16 @@ const cors = require('cors')
 const volleyball = require('volleyball')
 
 module.exports = app
+.use(volleyball)	// basic color-coded logging
+.use(cors())		// cors prevents requests, at least on locahost
 
-	.use(volleyball)	// basic color-coded logging
-	.use(cors())		// cors prevents requests, at least on locahost
+.use('/api', require('./api'))
 
-	.use('/api', require('./api'))
-	
-	.get('/*', (req, res) => {
-		res.sendStatus(404)
-		// res.sendFile(resolve(__dirname, '..', 'public', 'index.html'))
-		// hove not built front-end yet; using dev server for now
-	})
+.get('/*', (req, res) => {
+	res.sendStatus(404)
+	// res.sendFile(resolve(__dirname, '..', 'public', 'index.html'))
+	// hove not built front-end yet; using dev server for now
+})
 
 const server = app.listen(8080,
 	() => {
