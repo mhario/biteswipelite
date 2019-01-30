@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
-	setRestaurants,
-	requestRestaurants } from '../reducers/'
+	requestRestaurants,
+	getLocation } from '../reducers/'
 import { connect } from 'react-redux'
 
 class YelpTester extends Component {
@@ -22,19 +22,32 @@ class YelpTester extends Component {
 
 	render() {
 		return (
-			<div>
-				testing Yelp lol
-				<input 
-					onChange={this.updateTerm}>
-					
-				</input>
+			<section
+				className="test">
+				<header>
+					testing Yelp lol
+
+				</header>
+				
+				<form>
+					<input 
+						onChange={this.updateTerm}>
+					</input>
+					<button
+						onClick={e => {
+							e.preventDefault()
+							this.props.requestRestaurants(this.state.term)
+						}}>
+						Get stuff!	
+					</button>
+				</form>
 				<button
-					onClick={() => {
-						this.props.requestRestaurants(this.state.term)
-					}}>
-					Get stuff!	
+					onClick={this.props.getLocation}
+				>
+					Get location
 				</button>
-				<div className="menu" style={ { color: 'white' } }>
+				<section
+					className="menu">
 					{
 						this.props.restaurants &&
 						this.props.restaurants.map(restaurant => {
@@ -45,8 +58,8 @@ class YelpTester extends Component {
 							)
 						})
 					}
-				</div>
-			</div>
+				</section>
+			</section>
 		)
 	}
 }
@@ -59,11 +72,11 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-	setTheRestaurants(rests) {
-		dispatch(setRestaurants(rests))
-	},
 	requestRestaurants(searchTerm) {
 		dispatch(requestRestaurants(searchTerm))
+	},
+	getLocation() {
+		dispatch(getLocation())
 	}
 })
 

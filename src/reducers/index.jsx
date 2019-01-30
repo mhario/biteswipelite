@@ -17,6 +17,7 @@ export default function(state = initialState, action) {
 		case 'SET_LOADING':
 			newState.loading = action.value
 			break
+
 		default:
 	}
 	
@@ -41,8 +42,6 @@ export const setLoading = isLoading => {
 }
 
 export const requestRestaurants = search => {
-	console.log('search tearm', search)
-
 	return function(dispatch) {
 		dispatch(setLoading(true))
 
@@ -57,8 +56,11 @@ export const requestRestaurants = search => {
 			console.log('response in the reducer is', response)
 			dispatch(setRestaurants(response.data.businesses))
 		})
-
 	}
-
 }
 
+export const getLocation = () => {
+	return function(dispatch) {
+		console.log('gettin it dog')
+	}
+}
