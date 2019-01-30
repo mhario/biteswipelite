@@ -2,8 +2,7 @@ import './styles/index.scss'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import YelpTester from './components/YelpTester'
-import store from './store'
-
+import store from './store/store'
 
 class App extends Component {
 	render() {
@@ -11,7 +10,6 @@ class App extends Component {
 			<Provider store={store}>
 				<div className="App">
 					<header className="App-header">
-						{this.state}
 						<YelpTester />
 					</header>
 				</div>

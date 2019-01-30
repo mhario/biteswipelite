@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-	requestRestaurants } from '../reducers/destinations'
+	requestRestaurants } from '../store/reducers/destinations'
 import { connect } from 'react-redux'
 
 class YelpTester extends Component {
