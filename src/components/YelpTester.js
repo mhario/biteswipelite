@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {
-	requestRestaurants,
-	getLocation } from '../reducers/'
+	requestRestaurants } from '../reducers/destinations'
 import { connect } from 'react-redux'
 
 class YelpTester extends Component {
@@ -41,11 +40,6 @@ class YelpTester extends Component {
 						Get stuff!	
 					</button>
 				</form>
-				<button
-					onClick={this.props.getLocation}
-				>
-					Get location
-				</button>
 				<section
 					className="menu">
 					{
@@ -65,8 +59,9 @@ class YelpTester extends Component {
 }
 
 const mapStateToProps = state => {
+
 	return {
-		restaurants: state.restaurants,
+		restaurants: state.destinations.restaurants,
 		loading: state.loading
 	}
 }
@@ -75,9 +70,9 @@ const mapDispatchToProps = dispatch => ({
 	requestRestaurants(searchTerm) {
 		dispatch(requestRestaurants(searchTerm))
 	},
-	getLocation() {
-		dispatch(getLocation())
-	}
+	// getLocation() {
+	// 	dispatch(getLocation())
+	// }
 })
 
 export default connect(
