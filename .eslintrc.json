@@ -21,6 +21,7 @@
         "react"
     ],
     "rules": {
+        "react/no-unescaped-entities": "off",
         "no-unused-vars": "warn",
         "no-console": 1,
         "react/prop-types": 0,
@@ -193,7 +194,6 @@
         "no-sync": "error",
         "no-tabs": "off",
         "no-template-curly-in-string": "error",
-        "no-ternary": "error",
         "no-throw-literal": "error",
         "no-undef-init": "error",
         "no-undefined": "error",

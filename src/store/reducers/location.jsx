@@ -1,7 +1,8 @@
 const initialState = {
-	waiting: false,
-	zipCode: '',
-	position: {}
+	isKnown: false,
+	isWaiting: false,
+	zipCode: -1,
+	coords: {}
 }
 
 //
@@ -11,7 +12,18 @@ export default function(state = initialState, action) {
 
 	switch (action.type) {
 		case 'SET_POSITION':
-			newState.position = action.value
+			newState.coords = action.value
+			newState.isKnown = true
+			break
+			
+		case 'SET_ZIP':
+			newState.zipCode = action.value
+			newState.isKnown = true
+			break
+
+
+		case 'SET_WAITING':
+			newState.isWaiting = action.value
 			break
 
 		default:
@@ -23,6 +35,8 @@ export default function(state = initialState, action) {
 //
 // action-types
 const SET_POSITION = 'SET_POSITION'
+const SET_ZIP = 'SET_ZIP'
+const SET_WAITING = 'SET_WAITING'
 
 //
 // action-creators
@@ -32,15 +46,24 @@ export const setPosition = position => {
 		value: position
 	}
 }
-
+export const setZip = zip => {
+	return {
+		type: SET_ZIP,
+		value: zip
+	}
+}
+export const setWaiting = waiting => {
+	return {
+		type: SET_WAITING,
+		value: waiting
+	}
+}
 
 //
 // actions
 export const getLocation = () => {
 	return function(dispatch) {
-		console.log('doin it')
 		navigator.geolocation.getCurrentPosition(pos => {
-			console.log('done did it', pos)
 			// dispatch(setLocation(pos))
 		})
 	}

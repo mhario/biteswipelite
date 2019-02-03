@@ -12,8 +12,7 @@ class YelpTester extends Component {
 	constructor() {
 		super()
 		this.state = {
-			term: '',
-			loading: false
+			term: ''
 		}
 
 		this.updateTerm = this._updateTerm.bind(this)
@@ -29,7 +28,7 @@ class YelpTester extends Component {
 				</header>
 				
 				<form>
-					<input 
+					<input
 						onChange={this.updateTerm}>
 					</input>
 					<button
@@ -37,7 +36,7 @@ class YelpTester extends Component {
 							e.preventDefault()
 							this.props.requestRestaurants(this.state.term)
 						}}>
-						Get stuff!	
+						Get stuff!
 					</button>
 				</form>
 				<section
@@ -69,10 +68,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
 	requestRestaurants(searchTerm) {
 		dispatch(requestRestaurants(searchTerm))
-	},
-	// getLocation() {
-	// 	dispatch(getLocation())
-	// }
+	}
 })
 
 export default connect(
