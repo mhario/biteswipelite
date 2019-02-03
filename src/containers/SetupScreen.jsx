@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 // import YelpTester from '../components/YelpTester'
 import WhatsUp from '../components/WhatsUp'
 import FindLocation from '../components/FindLocation'
+import HowMuchToSpend from '../components/HowMuchToSpend'
 
 class SetupScreen extends Component {
 
@@ -28,6 +29,7 @@ class SetupScreen extends Component {
 				className="setup">
 				<WhatsUp />
 				<FindLocation />
+				<HowMuchToSpend />
 				{/* <YelpTester /> */}
 			</section>
 		)

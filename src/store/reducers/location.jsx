@@ -21,7 +21,6 @@ export default function(state = initialState, action) {
 			newState.isKnown = true
 			break
 
-
 		case 'SET_WAITING':
 			newState.isWaiting = action.value
 			break
