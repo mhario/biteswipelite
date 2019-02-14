@@ -30,7 +30,7 @@ class WhatsUp extends React.Component {
 							How far's too far?
 							<input
 								type="text"
-							/>
+							/> mi
 						</label>
 						<label>
 							<input
@@ -58,7 +58,8 @@ class WhatsUp extends React.Component {
 							How far's too far?
 							<input
 								type="text"
-							/>
+								disabled={this.props.mode !== 'drive-thru'}
+							/> mi
 						</label>
 					</div>
 					<label

@@ -5,7 +5,7 @@
 		text-align: left;
 		label {
 			display: block;
-			padding: 10px 10px;
+			margin: 10px 10px;
 
 			input {
 				margin-left: 20px;
@@ -14,9 +14,13 @@
 		}
 		.options {
 			padding-left: 50px;
+			overflow: hidden;
+			&:not(:active) {
+				max-height: 0;
+			}
 			&.active {
 				background-color: red;
-				overflow: hidden;
+				max-height:1005px;
 			}
 		}
 		// max-height: 65px;

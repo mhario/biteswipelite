@@ -113,7 +113,7 @@
             "error",
             "separate-lines"
         ],
-        "multiline-ternary": "error",
+        "multiline-ternary": "off",
         "new-parens": "error",
         "newline-after-var": [
             "error",

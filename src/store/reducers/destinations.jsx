@@ -1,6 +1,5 @@
 const axios = require('axios')
 
-
 const initialState = {
 	loading: false,
 	restaurants: []
