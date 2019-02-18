@@ -55,7 +55,7 @@ class FindLocation extends React.Component {
 				{
 					this.props.isPositionKnown
 						? <p>Got it!</p>
-						: <form>
+						: <label>
 							<p>Where you at?</p>
 							<input
 								placeholder="ZIP"
@@ -64,7 +64,7 @@ class FindLocation extends React.Component {
 							{
 								this.getButton()
 							}
-						</form>
+						</label>
 				}
 			</section>
 		)
