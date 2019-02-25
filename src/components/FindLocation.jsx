@@ -6,7 +6,8 @@ class FindLocation extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			zip: 0
+			zip: 0,
+			isDenied: false
 		}
 
 		this.setPosition = this._setPosition.bind(this)
@@ -15,17 +16,43 @@ class FindLocation extends React.Component {
 	}
 
 	_setPosition(position) {
+		console.log('called with', position)
 		this.props.setPosition(position.coords)
+	}
+
+	componentDidMount() {
+		navigator.permissions
+			? navigator.permissions.query({
+				name: 'geolocation'
+			}).then(permission => {
+				if (permission.state === 'granted') {
+					navigator.geolocation
+					.getCurrentPosition(this.setPosition)
+				}
+			})
+			: this.setState({ isDenied: true })
 	}
 
 
 	_getPosition(e) {
-		e.preventDefault()
-		if (navigator.geolocation) {
-			navigator.geolocation
-			.getCurrentPosition(this.setPosition)
-		}
+		e && e.preventDefault()
+		navigator.permissions
+			? navigator.permissions.query({
+				name: 'geolocation'
+			}).then(permission => {
+				console.log('lookin at', permission)
+				permission.state === 'prompt' || permission.state === 'granted'
+					? navigator.geolocation.getCurrentPosition(this.setPosition)
+					: this.setState({ isDenied: true })
+			})
+			: this.setState({ isDenied: true })
+
+		// if (navigator.geolocation) {
+		// 	navigator.geolocation
+		// 	.getCurrentPosition(this.setPosition)
+		// }
 	}
+	// }
 
 	_updateZIP(zip) {
 		this.setState({ zip })

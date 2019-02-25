@@ -63,7 +63,11 @@ export const setWaiting = waiting => {
 export const getLocation = () => {
 	return function(dispatch) {
 		navigator.geolocation.getCurrentPosition(pos => {
+			console.log('got pos', pos)
 			dispatch(setPosition(pos))
+		},
+		err => {
+			console.error('no permission', err)
 		})
 	}
 }
