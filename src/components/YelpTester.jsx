@@ -36,6 +36,7 @@ class YelpTester extends Component {
 					onChange={this.updateTerm}>
 				</input>
 				<button
+					disabled={!this.props.isLocationKnown}
 					onClick={e => {
 						e.preventDefault()
 						this.requestRestaurants()
@@ -48,10 +49,10 @@ class YelpTester extends Component {
 }
 
 const mapStateToProps = state => {
-
 	return {
 		restaurants: state.destinations.restaurants,
-		loading: state.loading
+		loading: state.loading,
+		isLocationKnown: state.location.isKnown
 	}
 }
 

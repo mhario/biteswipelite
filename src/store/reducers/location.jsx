@@ -63,7 +63,7 @@ export const setWaiting = waiting => {
 export const getLocation = () => {
 	return function(dispatch) {
 		navigator.geolocation.getCurrentPosition(pos => {
-			// dispatch(setLocation(pos))
+			dispatch(setPosition(pos))
 		})
 	}
 }

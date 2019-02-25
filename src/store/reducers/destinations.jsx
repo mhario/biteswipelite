@@ -42,14 +42,19 @@ export const setLoading = isLoading => {
 }
 
 export const requestRestaurants = search => {
-	return function(dispatch) {
+	return function(dispatch, getRootState) {
 		dispatch(setLoading(true))
+
+		const { latitude, longitude } = getRootState().location.coords
 
 		return axios({
 			method: 'get',
 			url: 'http://localhost:8080/api/search',
 			params: {
-				query: search
+				query: search,
+				latitude,
+				longitude
+
 			}
 		})
 		.then(response => {
