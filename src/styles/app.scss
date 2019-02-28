@@ -9,3 +9,9 @@
 	justify-content: center;
 	font-size: calc(10px + 1vmin);
 }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

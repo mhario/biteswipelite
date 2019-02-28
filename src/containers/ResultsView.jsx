@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const ResultsView = props => {
 	return (
-		<section>
+		<section className="results-view">
 			<p>Results</p>
 			<ul>
 				{
@@ -12,6 +12,9 @@ const ResultsView = props => {
 							<li
 								key={rest.id}>
 								{rest.name}
+								<img
+									src={rest.image_url}
+								/>
 							</li>
 						)
 					})
