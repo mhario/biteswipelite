@@ -41,7 +41,7 @@ export const setLoading = isLoading => {
 		value: isLoading }
 }
 
-export const requestRestaurants = search => {
+export const requestRestaurants = params => {
 	return function(dispatch, getRootState) {
 		dispatch(setLoading(true))
 
@@ -51,10 +51,9 @@ export const requestRestaurants = search => {
 			method: 'get',
 			url: 'http://localhost:8080/api/search',
 			params: {
-				query: search,
 				latitude,
-				longitude
-
+				longitude,
+				...params
 			}
 		})
 		.then(response => {
