@@ -16,7 +16,6 @@ class FindLocation extends React.Component {
 	}
 
 	_setPosition(position) {
-		console.log('called with', position)
 		this.props.setPosition(position.coords)
 	}
 

@@ -35,9 +35,22 @@ class WhatsUp extends React.Component {
 				</label>
 				<label
 					className={classNames({
+						'active': this.props.mode === 'carry-out'
+					})}>
+					<input
+						onChange={this.props.updateMode}
+						checked={this.props.mode === 'carry-out'}
+						type="radio"
+						name="whats-up"
+						value="carry-out"/>
+					Grabbing take-out?
+				</label>
+				<label
+					className={classNames({
 						'active': this.props.mode === 'stay-in'
 					})}>
 					<input
+						disabled
 						onChange={this.props.updateMode}
 						checked={this.props.mode === 'stay-in'}
 						type="radio"

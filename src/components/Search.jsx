@@ -37,12 +37,16 @@ class Search extends React.Component {
 				break
 				
 			case 'drive-thru':
-				params.categories = 'Fast Food'
+				params.query = 'Drive Thru'
 				break
 				
-			case 'stay-in':
-				
+			case 'carry-out':
+				params.query = 'Carry out'
 				break
+				
+				// case 'stay-in':
+					
+				// 	break
 
 			default:
 		}

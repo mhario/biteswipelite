@@ -14,6 +14,7 @@ const ResultsView = props => {
 								{rest.name}
 								<img
 									src={rest.image_url}
+									alt="alttext"
 								/>
 							</li>
 						)

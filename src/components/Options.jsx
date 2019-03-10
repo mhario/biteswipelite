@@ -8,6 +8,7 @@ const classNames = require('classnames')
 const Options = props => {
 	const active = props.mode === 'go-out' ||
 		props.mode === 'drive-thru'
+	const drinksActive = props.mode === 'go-out'
 
 	return (
 		<section className="options">
@@ -29,7 +30,7 @@ const Options = props => {
 						name="drinks"
 						value={props.drinks}
 						onChange={props.toggleDrinks}
-						disabled={!active} />
+						disabled={!drinksActive} />
 					Drinks
 				</label>
 			</div>
