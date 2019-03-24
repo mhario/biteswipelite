@@ -1,26 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import OptionCard from '../components/OptionCard'
 
 const ResultsView = props => {
 	return (
 		<section className="results-view">
 			<p>Results</p>
-			<ul>
+			{/* <ul>
 				{
 					props.restaurants.map(rest => {
 						return (
-							<li
-								key={rest.id}>
-								{rest.name}
-								<img
-									src={rest.image_url}
-									alt="alttext"
-								/>
-							</li>
+							// <li
+							// 	key={rest.id}>
+							// 	{rest.name}
+							// 	<img
+							// 		src={rest.image_url}
+							// 		alt="alttext"
+							// 	/>
+							// </li>
+							<OptionCard key={rest.id} />
 						)
 					})
 				}
-			</ul>
+			</ul> */}
+			<OptionCard
+				option={props.restaurants[0]}/>
 		</section>
 	)
 }

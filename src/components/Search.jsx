@@ -15,10 +15,17 @@ class Search extends React.Component {
 	render() {
 		return (
 			<button
+				className="search"
 				onClick={this.search}>
 				Ready!
 			</button>
 		)
+	}
+
+	componentDidMount() {
+		setTimeout(() => {
+			document.querySelector('.search').click()
+		}, 500)
 	}
 
 	_search(e) {

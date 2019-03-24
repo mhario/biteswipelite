@@ -8,7 +8,7 @@ router
 
 // Send along any errors
 .use((err, req, res, next) => {
-	console.error(err)
+	console.error(err.Error)
 	res.status(500).send(err)
 })
 
