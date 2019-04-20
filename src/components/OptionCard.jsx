@@ -1,24 +1,16 @@
 import React from 'react'
 
-import { Card } from 'react-swipeable-cards'
-
 const grabUrl = option => {
 	return option.photos
 		? option.photos[0]
 		: option.image_url
 }
 
-
 const OptionCard = props => {
 	const { option } = props
 
 	return (
-		<Card
-			onSwipe={props.shift}
-			superOnSwipe={() => {
-				console.log('super swipe, optioncard')
-				props.shiftOne()
-			}}
+		<article
 			className="option-card">
 			<header>
 				<div
@@ -36,7 +28,7 @@ const OptionCard = props => {
 			<p>Rating: { option.rating }</p>
 			<p>Distance: { option.distance.toFixed(2) }</p>
 			<p>{ option.price }</p>
-		</Card>
+		</article>
 	)
 }
 

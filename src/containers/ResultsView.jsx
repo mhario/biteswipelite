@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // import OptionCard from '../components/OptionCard'
 // import ResultsList from '../components/ResultsList'
 
-import { CardWrapper } from 'react-swipeable-cards'
+import { CardWrapper, Card } from 'react-swipeable-cards'
 import OptionCard from '../components/OptionCard'
 import { shiftRestaurant } from '../store/reducers/destinations.jsx'
 
@@ -19,10 +19,12 @@ class ResultsView extends Component {
 				<CardWrapper>
 					{
 						this.props.restaurants.map(rest => {
-							return <OptionCard
+							return <Card
 								key={rest.id}
-								option={rest}
-								shiftOne={shiftRestaurant}/>
+								onSwipe={this.props.shiftRestaurant}>
+								{/* <OptionCard option={rest} /> */}
+								{rest.name}
+							</Card>
 						})
 					}
 				</CardWrapper>
@@ -46,7 +48,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	shiftRestaurant() {
-		console.log('resultsView, map ', dispatch)
 		dispatch(shiftRestaurant())
 	}
 })
