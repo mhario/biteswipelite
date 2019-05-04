@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import OptionCard from '../components/OptionCard'
 // import ResultsList from '../components/ResultsList'
 
 import Swipeable from 'react-swipy'
@@ -10,20 +9,18 @@ class ResultsView extends Component {
 
 
 	render() {
-		// const debug = false
 		const grabUrl = option => {
 			return option.photos
 				? option.photos[0]
 				: option.image_url
 		}
 
-		const spots = this.props.restaurants
+		const [spot] = this.props.spots
 
 		return (
 			<section className="results-view">
 				<p>Results</p>
-				{spots.length > 0 && (
-
+				{this.props.spots.length > 0 &&
 					<div className="wrapper">
 						<Swipeable
 							onAfterSwipe={this.props.shiftRestaurant}>
@@ -34,22 +31,22 @@ class ResultsView extends Component {
 										className="banner"
 										role="presentation"
 										style={{ backgroundImage:
-											`url(${grabUrl(spots[0])})`
+											`url(${grabUrl(spot)})`
 										}}
 									/>
 									<span className="name">
-										{spots[0].name}
+										{spot.name}
 									</span>
 								</header>
-								<p>Rating: {spots[0].rating}</p>
+								<p>Rating: {spot.rating}</p>
 								<p>Distance:
-									{spots[0].distance.toFixed(2)}
+									{spot.distance.toFixed(2)}
 								</p>
-								<p>{spots[0].price}</p>
+								<p>{spot.price}</p>
 							</article>
 						</Swipeable>
 					</div>
-				)}
+				}
 				{/* {
 					debug 
 						? <ResultsList
@@ -65,7 +62,10 @@ class ResultsView extends Component {
 }
 
 const mapStateToProps = state => ({
-	restaurants: state.destinations.restaurants
+	spots: state.destinations.restaurants,
+	// need to watch spotCount to trigger re-render
+	// even though its not being used
+	spotCount: state.destinations.restaurants.length
 })
 
 const mapDispatchToProps = dispatch => ({

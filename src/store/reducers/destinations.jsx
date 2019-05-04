@@ -10,17 +10,14 @@ const initialState = {
 export default function(state = initialState, action) {
 	const newState = { ...state }
 	
-	console.log('reducer')
 	switch (action.type) {
 		case 'SET_RESTAURANTS':
-			console.log('setting`')
 			newState.restaurants = action.value
 			break
 		case 'SET_LOADING':
 			newState.loading = action.value
 			break
 		case 'SHIFT_RESTAURANT':
-			console.log('sindie the sdfoife')
 			newState.restaurants.shift()
 			break
 
