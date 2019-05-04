@@ -4,18 +4,13 @@ import { connect } from 'react-redux'
 
 import Swipeable from 'react-swipy'
 import { shiftSpot } from '../store/reducers/spots'
+import SpotCard from '../components/SpotCard'
 
 class ResultsView extends Component {
 
 
 	render() {
-		const grabUrl = option => {
-			return option.photos
-				? option.photos[0]
-				: option.image_url
-		}
-
-		const [spot] = this.props.spots
+		const [spot, next] = this.props.spots
 
 		return (
 			<section className="results-view">
@@ -24,27 +19,14 @@ class ResultsView extends Component {
 					<div className="wrapper">
 						<Swipeable
 							onAfterSwipe={this.props.shiftSpot}>
-							<article
-								className="option-card">
-								<header>
-									<div
-										className="banner"
-										role="presentation"
-										style={{ backgroundImage:
-											`url(${grabUrl(spot)})`
-										}}
-									/>
-									<span className="name">
-										{spot.name}
-									</span>
-								</header>
-								<p>Rating: {spot.rating}</p>
-								<p>Distance:
-									{spot.distance.toFixed(2)}
-								</p>
-								<p>{spot.price}</p>
-							</article>
+							<SpotCard
+								zIndex={1}
+								spot={spot} />
 						</Swipeable>
+						{/* {next &&
+							<SpotCard
+								zIndex={0}
+								spot={next} />} */}
 					</div>
 				}
 				{/* {
@@ -52,7 +34,7 @@ class ResultsView extends Component {
 						? <ResultsList
 							className="debug-results-view"
 							results={props.spots} />
-						: <OptionCard
+						: <SpotCard
 							option={props.spots[0]} />
 				} */}
 	

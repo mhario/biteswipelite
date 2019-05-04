@@ -1,4 +1,5 @@
 .results-view {
+	position: relative;
 	ul {
 		li {
 			border: 1px solid black;
@@ -29,6 +30,8 @@ ul.debug-results-view {
 }
 
 .wrapper {
-	display: flex;
-	justify-content: center;
+	width: 80vw;
+	height: 60vh;
+
+	position: relative;
 }
