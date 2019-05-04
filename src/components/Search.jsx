@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { requestRestaurants } from '../store/reducers/destinations'
+import { requestSpots } from '../store/reducers/spots'
 import { setIsSetup } from '../store/reducers/setup'
 
 class Search extends React.Component {
@@ -69,7 +69,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	executeSearch(term) {
-		dispatch(requestRestaurants(term))
+		dispatch(requestSpots(term))
 	},
 	setIsSetup(state) {
 		dispatch(setIsSetup(state))

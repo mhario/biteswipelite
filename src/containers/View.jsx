@@ -16,7 +16,7 @@ const View = props => {
 
 const mapStateToProps = state => ({
 	isSetup: state.setup.isSetup,
-	hasDestinations: state.destinations.restaurants.length
+	hasDestinations: state.spots.spots && state.spots.spots.length
 })
 
 export default connect(

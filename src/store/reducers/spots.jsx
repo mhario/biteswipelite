@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const initialState = {
 	loading: false,
-	restaurants: []
+	spots: []
 }
 
 //
@@ -11,14 +11,14 @@ export default function(state = initialState, action) {
 	const newState = { ...state }
 	
 	switch (action.type) {
-		case 'SET_RESTAURANTS':
-			newState.restaurants = action.value
+		case 'SET_SPOTS':
+			newState.spots = action.value
 			break
 		case 'SET_LOADING':
 			newState.loading = action.value
 			break
-		case 'SHIFT_RESTAURANT':
-			newState.restaurants.shift()
+		case 'SHIFT_SPOT':
+			newState.spots.shift()
 			break
 
 		default:
@@ -29,15 +29,15 @@ export default function(state = initialState, action) {
 
 //
 // action types
-const SET_RESTAURANTS = 'SET_RESTAURANTS'
+const SET_SPOTS = 'SET_SPOTS'
 const SET_LOADING = 'SET_LOADING'
-const SHIFT_RESTAURANT = 'SHIFT_RESTAURANT'
+const SHIFT_SPOT = 'SHIFT_SPOT'
 
 //
 // action creators
-export const setRestaurants = restaurants => {
-	return { type: SET_RESTAURANTS,
-		value: restaurants }
+export const setSpots = spots => {
+	return { type: SET_SPOTS,
+		value: spots }
 }
 
 export const setLoading = isLoading => {
@@ -45,7 +45,7 @@ export const setLoading = isLoading => {
 		value: isLoading }
 }
 
-export const requestRestaurants = params => {
+export const requestSpots = params => {
 	return function(dispatch, getRootState) {
 		dispatch(setLoading(true))
 
@@ -61,16 +61,14 @@ export const requestRestaurants = params => {
 			}
 		})
 		.then(response => {
-			dispatch(setRestaurants(response.data.businesses))
+			dispatch(setSpots(response.data.businesses))
 		})
 	}
 }
 
-export const shiftRestaurant = () => {
-	console.log('shifting`')
-
+export const shiftSpot = () => {
 	return {
-		type: SHIFT_RESTAURANT,
+		type: SHIFT_SPOT,
 		value: null
 	}
 }

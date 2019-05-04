@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // import ResultsList from '../components/ResultsList'
 
 import Swipeable from 'react-swipy'
-import { shiftRestaurant } from '../store/reducers/destinations.jsx'
+import { shiftSpot } from '../store/reducers/spots'
 
 class ResultsView extends Component {
 
@@ -23,7 +23,7 @@ class ResultsView extends Component {
 				{this.props.spots.length > 0 &&
 					<div className="wrapper">
 						<Swipeable
-							onAfterSwipe={this.props.shiftRestaurant}>
+							onAfterSwipe={this.props.shiftSpot}>
 							<article
 								className="option-card">
 								<header>
@@ -51,9 +51,9 @@ class ResultsView extends Component {
 					debug 
 						? <ResultsList
 							className="debug-results-view"
-							results={props.restaurants} />
+							results={props.spots} />
 						: <OptionCard
-							option={props.restaurants[0]} />
+							option={props.spots[0]} />
 				} */}
 	
 			</section>
@@ -62,15 +62,15 @@ class ResultsView extends Component {
 }
 
 const mapStateToProps = state => ({
-	spots: state.destinations.restaurants,
+	spots: state.spots.spots,
 	// need to watch spotCount to trigger re-render
 	// even though its not being used
-	spotCount: state.destinations.restaurants.length
+	spotCount: state.spots.spots.length
 })
 
 const mapDispatchToProps = dispatch => ({
-	shiftRestaurant() {
-		dispatch(shiftRestaurant())
+	shiftSpot() {
+		dispatch(shiftSpot())
 	}
 })
 
