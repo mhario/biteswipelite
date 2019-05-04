@@ -1,6 +1,4 @@
 .results-view {
-	width: 100%;
-
 	ul {
 		li {
 			border: 1px solid black;
@@ -28,4 +26,9 @@ ul.debug-results-view {
 			height: 80px;
 		}
 	}
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
 }
