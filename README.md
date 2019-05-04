@@ -1,68 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BiteSwipeLite
+=============
+## Mark Hario
+### mhar.io
 
-## Available Scripts
+Hello and thank you for stopping by! This here is a pre-MVP build for a simple and fun way to pick where to go for dinner, coffee, or drinks. 
 
-In the project directory, you can run:
+Essentially, the idea is to shuffle the results of a Yelp query and present them individually. If something seems reasonably appealing, swipe right on it; if not, swipe left. Once a few swipe rights are saved, a winner is randomly chosen from among the results. The user will then be presented with a simple 'results' page with directions; hopefully thereby ridding one of maddening indecision.
 
-### `npm start`
+This process will improve with time, ideally recording preferences for a user over time. I'd also like to add more options for various cuisine preferences, etc. I'm also intending there to be a 'group' feature so a few friends can choose a place together in a silly, fun way. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+More options come to mind, but for the moment I'm still building towards an MVP. My to-list is thus outlined:
+* The 'result' page does not exist,
+* the main menu isn't quite half*baked,
+* the whole thing is ugly, (but hey, I like it.)
+* improve algorithm for shuffling results
+* improve error handling across the board lol
+* 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+I've pulled the original CRA-provided Readme content into a separate file; CRAReadme.md. Essentially all you need is one terminal with:  
+`npm run start`  
+and another with  
+`npm run server`.  
 
-### `npm test`
+The server acts as a proxy to Yelp and provides the token to the end user.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Thanks for stopping by and reading! Please feel free to offer any feedback or employment.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Mark Hario  
+hario.mark@gmail.com
