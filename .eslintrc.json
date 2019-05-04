@@ -29,7 +29,12 @@
         "array-bracket-newline": "error",
         "array-bracket-spacing": "error",
         "array-callback-return": "error",
-        "array-element-newline": "error",
+        "array-element-newline": [
+            "warn",
+            {
+                "minItems": 4
+            }
+        ],
         "arrow-spacing": [  
             "error",
             {
@@ -102,7 +107,7 @@
         "lines-between-class-members": "error",
         "max-classes-per-file": "error",
         "max-depth": "error",
-        "max-len": "error",
+        "max-len": ["error", { "code": 90 }],
         "max-lines": "error",
         "max-lines-per-function": ["error", 100],
         "max-nested-callbacks": "error",

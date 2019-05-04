@@ -1,5 +1,5 @@
 const initState = {
-	mode: '',
+	mode: 'drive-thru',
 	maxDistance: 0,
 	drinks: false,
 	isSetup: false

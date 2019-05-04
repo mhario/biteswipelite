@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-	requestRestaurants } from '../store/reducers/destinations'
+	requestSpots } from '../store/reducers/spots'
 import { setIsSetup } from '../store/reducers/setup'
 
 import { connect } from 'react-redux'
@@ -11,9 +11,9 @@ class YelpTester extends Component {
 		this.setState({ term: event.target.value })
 	}
 
-	_requestRestaurants() {
+	_requestSpots() {
 		this.props.setIsSetup(true)
-		this.props.requestRestaurants(this.state.term)
+		this.props.requestSpots(this.state.term)
 	}
 
 	constructor() {
@@ -23,7 +23,7 @@ class YelpTester extends Component {
 		}
 
 		this.updateTerm = this._updateTerm.bind(this)
-		this.requestRestaurants = this._requestRestaurants.bind(this)
+		this.requestSpots = this._requestSpots.bind(this)
 	}
 
 	render() {
@@ -39,7 +39,7 @@ class YelpTester extends Component {
 					disabled={!this.props.isLocationKnown}
 					onClick={e => {
 						e.preventDefault()
-						this.requestRestaurants()
+						this.requestSpots()
 					}}>
 					Get stuff!
 				</button>
@@ -50,15 +50,15 @@ class YelpTester extends Component {
 
 const mapStateToProps = state => {
 	return {
-		restaurants: state.destinations.restaurants,
+		spots: state.spots.spots,
 		loading: state.loading,
 		isLocationKnown: state.location.isKnown
 	}
 }
 
 const mapDispatchToProps = dispatch => ({
-	requestRestaurants(searchTerm) {
-		dispatch(requestRestaurants(searchTerm))
+	requestSpots(searchTerm) {
+		dispatch(requestSpots(searchTerm))
 	},
 	setIsSetup(isSetup) {
 		dispatch(setIsSetup(isSetup))

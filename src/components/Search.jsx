@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { requestRestaurants } from '../store/reducers/destinations'
+import { requestSpots } from '../store/reducers/spots'
 import { setIsSetup } from '../store/reducers/setup'
 
 class Search extends React.Component {
@@ -15,10 +15,17 @@ class Search extends React.Component {
 	render() {
 		return (
 			<button
+				className="search"
 				onClick={this.search}>
 				Ready!
 			</button>
 		)
+	}
+
+	componentDidMount() {
+		setTimeout(() => {
+			document.querySelector('.search').click()
+		}, 500)
 	}
 
 	_search(e) {
@@ -62,7 +69,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	executeSearch(term) {
-		dispatch(requestRestaurants(term))
+		dispatch(requestSpots(term))
 	},
 	setIsSetup(state) {
 		dispatch(setIsSetup(state))
