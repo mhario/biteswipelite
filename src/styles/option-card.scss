@@ -17,7 +17,14 @@
 
 		.banner {
 			height: 100%;
+
+			// TODO: probably need to address this in JS
+			// 'cover' works for most, but not all
 			background-size: cover;
+			background-position-y: center;
+			background-position-x: center;
+			// background-size: calc(60vh * 0.65);
+			// background-repeat: no-repeat;
 
 			&:before {
 				content: "";

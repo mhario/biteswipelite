@@ -10,17 +10,28 @@ class ResultsView extends Component {
 
 
 	render() {
-		const [spot, next] = this.props.spots
+		const [spot] = this.props.spots
 
 		return (
 			<section className="results-view">
-				<p>Results</p>
 				{this.props.spots.length > 0 &&
 					<div className="wrapper">
 						<Swipeable
+							buttons={({ right, left }) => (
+								<div className="option-buttons">
+									<button
+										className=""
+										onClick={left}>Nah</button>
+									<button
+										className=""
+										onClick={right}>... ehh</button>
+									<button
+										className=""
+										onClick={right}>YEAH!</button>
+								</div>
+							)}
 							onAfterSwipe={this.props.shiftSpot}>
 							<SpotCard
-								zIndex={1}
 								spot={spot} />
 						</Swipeable>
 						{/* {next &&
@@ -29,14 +40,9 @@ class ResultsView extends Component {
 								spot={next} />} */}
 					</div>
 				}
-				{/* {
-					debug 
-						? <ResultsList
-							className="debug-results-view"
-							results={props.spots} />
-						: <SpotCard
-							option={props.spots[0]} />
-				} */}
+				{/* <ResultsList
+					className="debug-results-view"
+					results={props.spots} /> */}
 	
 			</section>
 		)
