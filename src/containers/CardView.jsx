@@ -4,16 +4,22 @@ import { connect } from 'react-redux'
 
 import Swipeable from 'react-swipy'
 import { shiftSpot } from '../store/reducers/spots'
+import { addMaybe } from '../store/reducers/results'
 import SpotCard from '../components/SpotCard'
 
 class ResultsView extends Component {
 
+	addToMaybes(spot) {
+		console.log('spot is this', spot)
+		this.props.addMaybe(spot)
+
+	}
 
 	render() {
 		const [spot] = this.props.spots
 
 		return (
-			<section className="results-view">
+			<section className="card-view">
 				{this.props.spots.length > 0 &&
 					<div className="wrapper">
 						<Swipeable
@@ -22,17 +28,22 @@ class ResultsView extends Component {
 									<button
 										className=""
 										onClick={left}>Nah</button>
+									{/* <button
+										className=""
+										onClick={right}>YEAH!</button> */}
 									<button
 										className=""
-										onClick={right}>... ehh</button>
-									<button
-										className=""
-										onClick={right}>YEAH!</button>
+										onClick={right}>eh maybe</button>
 								</div>
 							)}
-							onAfterSwipe={this.props.shiftSpot}>
+							onSwipe={direction => {
+								this.props.shiftSpot()
+								if (direction === 'right') {
+									this.addToMaybes(spot)
+								}
+							}}>
 							<SpotCard
-								spot={spot} />
+								spot={spot}e for this r />
 						</Swipeable>
 						{/* {next &&
 							<SpotCard
@@ -59,6 +70,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	shiftSpot() {
 		dispatch(shiftSpot())
+	},
+	addMaybe(spot) {
+		dispatch(addMaybe(spot))
 	}
 })
 

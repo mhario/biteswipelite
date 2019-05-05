@@ -1,4 +1,4 @@
-.results-view {
+.card-view {
 	position: relative;
 	margin-top: -80px; // because the card wrapper doesn't
 		// account for the height of hte buttons
@@ -25,28 +25,33 @@
 			cursor: pointer;
 		}
 	}
-
 }
-
-ul.debug-results-view {
-	display: flex;
-	flex-direction: column;
-	width: 420px;
-	
-	li {
-		display: flex;
-		justify-content: space-between;
-		
-		.name {
-			margin: 5px;
-			text-align: left;
-		}
-
-		img {
-			height: 80px;
-		}
+.results-view {
+	button {
+		display: block;
+		margin: auto;
 	}
 }
+
+// ul.debug-results-view {
+// 	display: flex;
+// 	flex-direction: column;
+// 	width: 420px;
+	
+// 	li {
+// 		display: flex;
+// 		justify-content: space-between;
+		
+// 		.name {
+// 			margin: 5px;
+// 			text-align: left;
+// 		}
+
+// 		img {
+// 			height: 80px;
+// 		}
+// 	}
+// }
 
 .wrapper {
 	width: 80vw;

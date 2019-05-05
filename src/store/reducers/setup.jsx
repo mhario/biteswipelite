@@ -38,7 +38,7 @@ export default function(state = initState, action) {
 }
 
 //
-// actions
+// actions creators
 export const setMode = mode => ({
 	type: SET_MODE,
 	value: mode
