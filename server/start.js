@@ -5,6 +5,8 @@ const app = express()
 const cors = require('cors')
 const volleyball = require('volleyball')
 
+require('dotenv').config()
+
 module.exports = app
 .use(volleyball)	// basic color-coded logging
 .use(cors())		// cors prevents requests, at least on locahost

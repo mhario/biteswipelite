@@ -46,21 +46,17 @@ export const setLoading = isLoading => {
 }
 
 export const requestSpots = params => {
-	return function(dispatch, getRootState) {
+	
+	return function(dispatch) {
 		dispatch(setLoading(true))
-
-		const { latitude, longitude } = getRootState().location.coords
-
+		
 		return axios({
 			method: 'get',
 			url: 'http://localhost:8080/api/search',
-			params: {
-				latitude,
-				longitude,
-				...params
-			}
+			params: { ...params }
 		})
 		.then(response => {
+			dispatch(setLoading(false))
 			dispatch(setSpots(response.data.businesses))
 		})
 	}

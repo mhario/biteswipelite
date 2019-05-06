@@ -8,7 +8,9 @@ class WhatsUp extends React.Component {
 	render() {
 		return (
 			<section className="whats-up">
-				<header>What's goin on?</header>
+				<header>
+					<h1>What's goin on?</h1>
+				</header>
 				<label
 					className={classNames({
 						'active': this.props.mode === 'go-out'

@@ -1,5 +1,5 @@
 const initState = {
-	hasResults: false, // has 'maxMaybes' been hit?
+	isFinishedSwiping: false,
 	hasSingleResult: false,
 	maybes: []
 }
@@ -10,6 +10,7 @@ const MAX_MAYBES = 3
 // action-types
 const ADD_MAYBE = 'ADD_MAYBE'
 
+//
 // reducer
 export default function(state = initState, action) {
 	const newState = { ...state }
@@ -18,7 +19,7 @@ export default function(state = initState, action) {
 		case ADD_MAYBE:
 			newState.maybes.push(action.value)
 			if (newState.maybes.length === MAX_MAYBES) {
-				newState.hasResults = true
+				newState.isFinishedSwiping = true
 			}
 			break
 

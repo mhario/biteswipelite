@@ -7,6 +7,8 @@
 	height: 60vh;
 	overflow: hidden;
 
+	max-width: 650px;
+
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
@@ -14,6 +16,19 @@
 
 	header {
 		height: 390px;
+		max-height: 65%; // on very wide screens, the vh
+			// can cause the height to go too high
+
+		position: relative;
+		color: white;
+
+		.name {
+			position: absolute;
+			bottom: 3px;
+			font-size: 18px;
+			font-weight: bold;
+			left: 5px;
+		}
 
 		.banner {
 			height: 100%;
@@ -42,26 +57,16 @@
 		}
 	}
 
-	img.mega {
-		top: 0;
-		left: 0;
-		width: 100%;
-	}
 
-	header {
-		position: relative;
-		color: white;
-
-		.name {
-			position: absolute;
-			bottom: 3px;
-			font-size: 18px;
-			font-weight: bold;
-			left: 5px;
-		}
-	}
-	
 	p:last-child {
 		padding-bottom: 1em;
 	}
+}
+
+.wrapper {
+	width: 80vw;
+	max-width: 650px;
+	height: 60vh;
+
+	position: relative;
 }

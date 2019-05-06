@@ -53,8 +53,11 @@ class FindLocation extends React.Component {
 	}
 	// }
 
-	_updateZIP(zip) {
+	_updateZIP(e) {
+		const zip = e.target.value
+
 		this.setState({ zip })
+
 	}
 
 	getButton() {
@@ -63,13 +66,16 @@ class FindLocation extends React.Component {
 				<button
 					onClick={(e) => {
 						e.preventDefault()
-						this.props.setZip(this.state.zip)
+						const newZip = this.state.zip
+
+						this.props.setZip(newZip)
 					}}> Submit </button>
 			)
 		}
 		
 		return (
-			<button onClick={this.getPosition}>
+			<button
+				onClick={this.getPosition}>
 				IC
 			</button>
 		)
@@ -87,9 +93,7 @@ class FindLocation extends React.Component {
 								placeholder="ZIP"
 								onChange={this.updateZIP}
 							/>
-							{
-								this.getButton()
-							}
+							{ this.getButton() }
 						</label>
 				}
 			</section>
