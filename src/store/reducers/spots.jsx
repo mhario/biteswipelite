@@ -49,13 +49,14 @@ export const requestSpots = params => {
 	
 	return function(dispatch) {
 		dispatch(setLoading(true))
-
+		
 		return axios({
 			method: 'get',
 			url: 'http://localhost:8080/api/search',
-			params: {...params}
+			params: { ...params }
 		})
 		.then(response => {
+			dispatch(setLoading(false))
 			dispatch(setSpots(response.data.businesses))
 		})
 	}

@@ -6,23 +6,23 @@ import CardView from './CardView'
 
 
 const View = props => {
-	if (!props.isSetup) {
-		return <SetupScreen />
-	} else if (props.hasResults) {
+	if (props.isLoading) {
+		return <p>loading</p>
+	} else if (props.isFinishedSwiping) {
 		return <ResultsView 
 			results={props.results}/>
-	} else if (props.hasDestinations) {
+	} else if (props.hasData) {
 		return <CardView />
 	}
-
-	return <p>loading</p>
+	
+	return <SetupScreen />
 }
 
 const mapStateToProps = state => ({
-	isSetup: state.setup.isSetup,
-	hasDestinations: state.spots.spots && state.spots.spots.length,
-	hasResults: state.results.hasResults,
-	results: state.results.maybes
+	hasData: state.spots.spots && state.spots.spots.length,
+	isFinishedSwiping: state.results.isFinishedSwiping,
+	results: state.results.maybes,
+	isLoading: state.spots.loading
 })
 
 export default connect(

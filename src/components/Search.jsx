@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { requestSpots } from '../store/reducers/spots'
-import { setIsSetup } from '../store/reducers/setup'
 
 class Search extends React.Component {
 	constructor(props) {
@@ -13,8 +12,10 @@ class Search extends React.Component {
 	}
 
 	render() {
+
 		return (
 			<button
+				disabled={!this.props.location.isKnown}
 				className="search"
 				onClick={this.search}>
 				Ready!
@@ -22,17 +23,10 @@ class Search extends React.Component {
 		)
 	}
 
-	componentDidMount() {
-		setTimeout(() => {
-			document.querySelector('.search').click()
-		}, 500)
-	}
-
 	_search(e) {
 		e.preventDefault()
 
 		this.props.executeSearch(this.buildSearch())
-		this.props.setIsSetup(true)
 	}
 
 	_buildSearch() {
@@ -78,15 +72,13 @@ class Search extends React.Component {
 
 
 const mapStateToProps = state => ({
-	mode: state.setup.mode
+	mode: state.setup.mode,
+	location: state.location
 })
 
 const mapDispatchToProps = dispatch => ({
 	executeSearch(term) {
 		dispatch(requestSpots(term))
-	},
-	setIsSetup(state) {
-		dispatch(setIsSetup(state))
 	}
 })
 

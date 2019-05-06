@@ -6,8 +6,7 @@ import { setDistance, setDrinks } from '../store/reducers/setup'
 const classNames = require('classnames')
 
 const Options = props => {
-	const active = props.mode === 'go-out' ||
-		props.mode === 'drive-thru'
+	const active = props.mode !== 'stay-in'
 	const drinksActive = props.mode === 'go-out'
 
 	return (
