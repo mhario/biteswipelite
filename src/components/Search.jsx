@@ -52,10 +52,24 @@ class Search extends React.Component {
 				break
 				
 				// case 'stay-in':
-					
 				// 	break
-
 			default:
+		}
+
+		this._getLocation(params)
+
+		return params
+	}
+
+	_getLocation(params) {
+		const { latitude, longitude } = this.props.location.coords
+		const { zipCode } = this.props.location
+
+		if (latitude && longitude) {
+			params.latitude = latitude
+			params.longitude = longitude
+		} else {
+			params.location = zipCode
 		}
 
 		return params

@@ -8,12 +8,12 @@ const axios = require('axios').create({
 })
 
 router.get('/', (req, res) => {
-	
 	return axios({
 		method: 'get',
 		url: 'https://api.yelp.com/v3/businesses/search',
 		params: {
 			term: req.query.query,
+			location: req.query.location,
 			latitude: req.query.latitude,
 			longitude: req.query.longitude,
 			limit: 50,
